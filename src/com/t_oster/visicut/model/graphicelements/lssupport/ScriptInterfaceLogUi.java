@@ -19,8 +19,9 @@
 package com.t_oster.visicut.model.graphicelements.lssupport;
 
 import com.t_oster.liblasercut.laserscript.ScriptInterface;
-import com.t_oster.uicomponents.LogFrame;
+//import com.t_oster.uicomponents.LogFrame;
 import javax.swing.JFrame;
+import com.t_oster.visicut.gui.MainView;
 
 /**
  *
@@ -29,7 +30,7 @@ import javax.swing.JFrame;
 public class ScriptInterfaceLogUi implements ScriptInterface
 {
   
-  private static LogFrame win;
+  //private static LogFrame win;
   private ScriptInterface decoratee;
   
   public ScriptInterfaceLogUi(ScriptInterface decoratee)
@@ -39,13 +40,14 @@ public class ScriptInterfaceLogUi implements ScriptInterface
   
   public void echo(String text)
   {
-    if (win == null || !win.isVisible())
+    /*if (win == null || !win.isVisible())
     {
       win = new LogFrame("LaserScript output");
       win.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
       win.setVisible(true);
     }
-    win.addLine(text);
+    win.addLine(text);*/
+    MainView.getInstance().getDialog().showInfoMessage(text);
   }
 
   public void move(double x, double y)
