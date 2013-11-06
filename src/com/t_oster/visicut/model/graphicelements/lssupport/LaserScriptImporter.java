@@ -73,7 +73,7 @@ public class LaserScriptImporter extends AbstractImporter
     ScriptInterpreter ip = new ScriptInterpreter();
     try
     {
-      ip.execute(new FileReader(inputFile), new ScriptInterfaceLogUi(new ScriptInterface(){
+      ip.execute(new FileReader(inputFile), new ScriptInterface(){
 
         private Map<String,Object> settings = new LinkedHashMap<String,Object>();
         
@@ -115,10 +115,10 @@ public class LaserScriptImporter extends AbstractImporter
 
         public void echo(String text)
         {
-          //intercepted by decorator anyway
+          messages.add(text);
         }
 
-      }), !PreferencesManager.getInstance().getPreferences().isDisableSandbox());
+      }, !PreferencesManager.getInstance().getPreferences().isDisableSandbox());
     }
     catch (IOException e)
     {
